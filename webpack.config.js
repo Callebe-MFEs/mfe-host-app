@@ -1,0 +1,62 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
+// required if using external remotes
+// const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
+const path = require("path");
+
+const mode = process.env.NODE_ENV || "development";
+
+module.exports = {
+  mode,
+  entry: {
+    main: "./src/index.js",
+  },
+  devtool: "source-map",
+  optimization: {
+    minimize: mode === "production",
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".json"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        loader: require.resolve("babel-loader"),
+        options: {
+          presets: [require.resolve("@babel/preset-react")],
+        },
+      },
+      {
+        test: /\.md$/,
+        loader: "raw-loader",
+      },
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+    ],
+  },
+  output: {
+    filename: "[name].js",
+    path: path.resolve(__dirname, "dist"),
+  },
+  devServer: {
+    historyApiFallback: true,
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "MyHostApp",
+      filename: "remoteEntry.js",
+      remotes: {
+        // we can use env variables to define the remote url, for example:mfeAppR@${env.MFE_APP_R_URL}/remoteEntry.js
+        // mfeAppR: "mfeAppR@http://localhost:3001/remoteEntry.js",
+        // or we can use the window object to define the remote url, for example: mfeAppR@${window["mfeAppRUrl"]}/remoteEntry.js
+        // mfeAppR: "mfeAppR@[window.mfeAppRUrl]/remoteEntry.js",
+      },
+      shared: ["react", "react-dom"],
+    }),
+    // required if using external remotes
+    // new ExternalTemplateRemotesPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
+  ],
+};
