@@ -41,6 +41,9 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
+  experiments: {
+    outputModule: false,
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: "MyHostApp",
@@ -48,6 +51,7 @@ module.exports = {
       remotes: {
         // we can use env variables to define the remote url, for example:mfeAppR@${env.MFE_APP_R_URL}/remoteEntry.js
         mfeAppR: "mfeAppR@http://localhost:3001/remoteEntry.js",
+        mfeAppA: "mfeAppA@http://localhost:3002/remoteEntry.js",
         // or we can use the window object to define the remote url, for example: mfeAppR@${window["mfeAppRUrl"]}/remoteEntry.js
         // mfeAppR: "mfeAppR@[window.mfeAppRUrl]/remoteEntry.js",
       },
