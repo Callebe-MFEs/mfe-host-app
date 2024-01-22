@@ -1,8 +1,6 @@
 // import AuthServiceHandler from "./AuthServiceHandler";
 // import StateServiceHandler from "./StateServiceHandler";
 
-import { importRemote } from "./import-remote";
-
 export const config = {
   appConfig: window.MFEs,
   apiEndpoint: "/",

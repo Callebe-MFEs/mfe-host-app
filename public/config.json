@@ -1,0 +1,30 @@
+{
+  "appConfig": [
+    {
+      "id": 1,
+      "name": "mfe-app-r",
+      "url": "http://localhost:3001",
+      "loadRemoteStyle": false,
+      "remoteEntry": {
+        "url": "http://localhost:3001/remoteEntry.js",
+        "scope": "mfeAppR",
+        "module": "./MFEAppR"
+      },
+      "route": "/",
+      "activeWhen": "^/$"
+    },
+    {
+      "id": 2,
+      "name": "mfe-app-a",
+      "url": "http://localhost:3002",
+      "loadRemoteStyle": false,
+      "remoteEntry": {
+        "url": "http://localhost:3002/remoteEntry.js",
+        "scope": "mfeAppA",
+        "module": "./MFEAppA"
+      },
+      "route": "/mfe-app-a",
+      "activeWhen": "^/mfe-app-a(/.*)?$"
+    }
+  ]
+}
