@@ -40,6 +40,16 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    proxy: {
+      "/mfe-app-a": {
+        target: "http://localhost:3002",
+        pathRewrite: { "^/mfe-app-a": "" },
+      },
+      "/mfe-app-r": {
+        target: "http://localhost:3001",
+        pathRewrite: { "^/mfe-app-r": "" },
+      },
+    },
   },
   experiments: {
     outputModule: false,

@@ -2,11 +2,11 @@
   "appConfig": [
     {
       "id": 1,
-      "name": "mfe-app-r",
-      "url": "http://localhost:3001",
+      "name": "mfeAppR",
+      "url": "/mfe-app-r",
       "loadRemoteStyle": false,
       "remoteEntry": {
-        "url": "http://localhost:3001/remoteEntry.js",
+        "url": "/mfe-app-r/remoteEntry.js",
         "scope": "mfeAppR",
         "module": "./MFEAppR"
       },
@@ -15,16 +15,16 @@
     },
     {
       "id": 2,
-      "name": "mfe-app-a",
-      "url": "http://localhost:3002",
+      "name": "mfeAppA",
+      "url": "/mfe-app-a",
       "loadRemoteStyle": false,
       "remoteEntry": {
-        "url": "http://localhost:3002/remoteEntry.js",
+        "url": "/mfe-app-a/remoteEntry.js",
         "scope": "mfeAppA",
         "module": "./MFEAppA"
       },
-      "route": "/mfe-app-a",
-      "activeWhen": "^/mfe-app-a(/.*)?$"
+      "route": "/mfeAppA",
+      "activeWhen": "^/mfeAppA(/.*)?$"
     }
   ]
 }
