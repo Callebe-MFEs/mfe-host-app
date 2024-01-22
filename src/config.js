@@ -21,6 +21,15 @@ export const config = {
       route: "/mfe-app-a",
       activeWhen: (location) => location.pathname.startsWith("/mfe-app-a"),
     },
+    // {
+    //   id: 3,
+    //   name: "mfe-app-a",
+    //   url: "http://localhost:3003",
+    //   loadRemoteStyle: false,
+    //   path: import("mfeAppV/MFEAppV"),
+    //   route: "/mfe-app-v",
+    //   activeWhen: (location) => location.pathname.startsWith("/mfe-app-v"),
+    // },
   ],
   apiEndpoint: "/",
   layoutConfig: {
