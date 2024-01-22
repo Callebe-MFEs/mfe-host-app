@@ -1,6 +1,8 @@
 // import AuthServiceHandler from "./AuthServiceHandler";
 // import StateServiceHandler from "./StateServiceHandler";
 
+import { importRemote } from "./import-remote";
+
 export const config = {
   appConfig: [
     {
@@ -8,7 +10,11 @@ export const config = {
       name: "mfe-app-r",
       url: "http://localhost:3001",
       loadRemoteStyle: false,
-      path: import("mfeAppR/MFEAppR"),
+      path: importRemote(
+        "http://localhost:3001/remoteEntry.js",
+        "mfeAppR",
+        "./MFEAppR"
+      ),
       route: "/",
       activeWhen: (location) => location.pathname === "/",
     },
@@ -17,7 +23,11 @@ export const config = {
       name: "mfe-app-a",
       url: "http://localhost:3002",
       loadRemoteStyle: false,
-      path: import("mfeAppA/MFEAppA"),
+      path: importRemote(
+        "http://localhost:3002/remoteEntry.js",
+        "mfeAppA",
+        "./MFEAppA"
+      ),
       route: "/mfe-app-a",
       activeWhen: (location) => location.pathname.startsWith("/mfe-app-a"),
     },
