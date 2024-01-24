@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 // required if using external remotes
 // const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
@@ -72,6 +73,9 @@ module.exports = {
     // new ExternalTemplateRemotesPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+    }),
+    new CopyPlugin({
+      patterns: ["./public/config.json"],
     }),
   ],
 };
