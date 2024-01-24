@@ -52,6 +52,7 @@ module.exports = {
       },
       "/mfe-app-v": {
         target: "http://localhost:3003",
+        pathRewrite: { "^/mfe-app-v": "" },
       },
     },
   },
