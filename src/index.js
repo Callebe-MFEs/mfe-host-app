@@ -17,7 +17,8 @@ import { importRemote } from "./import-remote";
     path: importRemote(
       app.remoteEntry.url,
       app.remoteEntry.scope,
-      app.remoteEntry.module
+      app.remoteEntry.module,
+      app.remoteEntry.type
     ),
     route: app.route,
     activeWhen: (location) =>

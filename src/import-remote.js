@@ -1,4 +1,4 @@
-const fetchRemoteEntry = async (url, scope) => {
+const fetchWebPackRemoteEntry = (url, scope) => {
   const script = document.createElement("script");
   script.src = url;
   script.type = "text/javascript";
@@ -15,6 +15,36 @@ const fetchRemoteEntry = async (url, scope) => {
   return promise;
 };
 
+const fetchModuleRemoteEntry = (url, scope) => {
+  const script = document.createElement("script");
+  script.type = "module";
+  script.innerHTML = `
+    (async () => {
+      const module = await import("${url}");
+      window['${scope}'] = module;
+      if (window['scopeLoading']['${scope}']) {
+        window['scopeLoading']['${scope}'](module);
+        delete window['scopeLoading']['${scope}'];
+      }
+    })();
+  `;
+  const promise = new Promise((resolve) => {
+    window["scopeLoading"] = window["scopeLoading"] || {};
+    window["scopeLoading"][scope] = resolve;
+  });
+
+  document.head.appendChild(script);
+
+  return promise;
+};
+
+const fetchRemoteEntry = (url, scope, type) => {
+  if (type === "module") {
+    return fetchModuleRemoteEntry(url, scope);
+  }
+  return fetchWebPackRemoteEntry(url, scope);
+};
+
 let promise = undefined;
 const initSharingScope = async () => {
   if (!promise) {
@@ -24,10 +54,10 @@ const initSharingScope = async () => {
   await promise;
 };
 
-export const importRemote = async (url, scope, module) => {
+export const importRemote = async (url, scope, module, type) => {
   let container = window[scope];
   if (!container) {
-    container = await fetchRemoteEntry(url, scope);
+    container = await fetchRemoteEntry(url, scope, type);
     await initSharingScope();
     await container.init(__webpack_share_scopes__.default);
   }

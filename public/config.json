@@ -8,7 +8,8 @@
       "remoteEntry": {
         "url": "/mfe-app-r/remoteEntry.js",
         "scope": "mfeAppR",
-        "module": "./MFEAppR"
+        "module": "./MFEAppR",
+        "type": "webpack"
       },
       "route": "/",
       "activeWhen": "^/$"
@@ -21,10 +22,25 @@
       "remoteEntry": {
         "url": "/mfe-app-a/remoteEntry.js",
         "scope": "mfeAppA",
-        "module": "./MFEAppA"
+        "module": "./MFEAppA",
+        "type": "module"
       },
       "route": "/mfeAppA",
       "activeWhen": "^/mfeAppA(/.*)?$"
+    },
+    {
+      "id": 2,
+      "name": "mfeAppV",
+      "url": "/mfe-app-v",
+      "loadRemoteStyle": false,
+      "remoteEntry": {
+        "url": "/mfe-app-v/assets/remoteEntry.js",
+        "scope": "mfeAppV",
+        "module": "./MFEAppV",
+        "type": "module"
+      },
+      "route": "/mfeAppV",
+      "activeWhen": "^/mfeAppV(/.*)?$"
     }
   ]
 }
