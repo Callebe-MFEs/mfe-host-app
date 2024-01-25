@@ -1,7 +1,7 @@
 {
   "appConfig": [
     {
-      "id": 1,
+      "id": 2,
       "name": "mfeAppR",
       "url": "/mfe-app-r",
       "loadRemoteStyle": false,
@@ -12,10 +12,10 @@
         "type": "webpack"
       },
       "route": "/",
-      "activeWhen": "^/$"
+      "activeWhen": "^/"
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "mfeAppA",
       "url": "/mfe-app-a",
       "loadRemoteStyle": false,
@@ -29,7 +29,7 @@
       "activeWhen": "^/mfeAppA(/.*)?$"
     },
     {
-      "id": 2,
+      "id": 4,
       "name": "mfeAppV",
       "url": "/mfe-app-v",
       "loadRemoteStyle": false,

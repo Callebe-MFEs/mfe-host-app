@@ -46,12 +46,12 @@ const fetchRemoteEntry = (url, scope, type) => {
 };
 
 let promise = undefined;
-const initSharingScope = async () => {
+const initSharingScope = () => {
   if (!promise) {
     promise = __webpack_init_sharing__("default");
   }
 
-  await promise;
+  return promise;
 };
 
 export const importRemote = async (url, scope, module, type) => {

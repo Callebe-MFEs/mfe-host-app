@@ -2,10 +2,21 @@
 // import StateServiceHandler from "./StateServiceHandler";
 
 export const config = {
-  appConfig: window.MFEs,
+  appConfig: [
+    {
+      id: 1,
+      name: "home",
+      url: "/",
+      path: import("./app"),
+      route: "/",
+      loadRemoteStyle: false,
+      activeWhen: (location) => /^\/$/.test(location.pathname),
+    },
+    ...window.MFEs,
+  ],
   apiEndpoint: "/",
   layoutConfig: {
-    layout: "cnh-root-layout-default-vertical",
+    layout: "cnh-root-layout-default-horizontal",
   },
   // authServiceHandler: new AuthServiceHandler(),
   // stateServiceHandler: new StateServiceHandler(
