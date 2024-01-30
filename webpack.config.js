@@ -71,6 +71,9 @@ module.exports = {
         // or we can use the window object to define the remote url, for example: mfeAppR@${window["mfeAppRUrl"]}/remoteEntry.js
         // mfeAppR: "mfeAppR@[window.mfeAppRUrl]/remoteEntry.js",
       },
+      exposes: {
+        "./myHostApp": "./src/app",
+      },
       shared: ["react", "react-dom"],
     }),
     // required if using external remotes

@@ -1,6 +1,21 @@
 {
   "appConfig": [
     {
+      "id": 1,
+      "name": "home",
+      "url": "/",
+      "remoteEntry": {
+        "url": "/remoteEntry.js",
+        "scope": "MyHostApp",
+        "module": "./myHostApp",
+        "type": "webpack"
+      },
+      "route": "/",
+      "loadRemoteStyle": false,
+      "activeWhen": "^/$",
+      "type": "module"
+    },
+    {
       "id": 2,
       "name": "mfeAppR",
       "url": "/mfe-app-r",
@@ -12,7 +27,8 @@
         "type": "webpack"
       },
       "route": "/",
-      "activeWhen": "^/"
+      "activeWhen": "^/",
+      "placement": "header"
     },
     {
       "id": 3,
@@ -26,7 +42,8 @@
         "type": "module"
       },
       "route": "/mfeAppA",
-      "activeWhen": "^/mfeAppA(/.*)?$"
+      "activeWhen": "^/mfeAppA(/.*)?$",
+      "placement": "content"
     },
     {
       "id": 4,
@@ -40,7 +57,8 @@
         "type": "module"
       },
       "route": "/mfeAppV",
-      "activeWhen": "^/mfeAppV(/.*)?$"
+      "activeWhen": "^/mfeAppV(/.*)?$",
+      "placement": "content"
     }
   ]
 }
