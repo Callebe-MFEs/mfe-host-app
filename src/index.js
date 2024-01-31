@@ -7,10 +7,10 @@ import { importRemote } from "./import-remote";
   // loading mfes configuration from config.json file.
   // it could come from an API call as well.
   // the config.json file can be build in the server side reading from env variables.
-  const response = await fetch("/config.json");
-  const config = await response.json();
-  window.appConfig = config.appConfig;
-  window.MFEs = config.appConfig.map((app) => ({
+  const response = await fetch("/applications");
+  const applications = await response.json();
+  window.appConfig = applications;
+  window.MFEs = applications.map((app) => ({
     id: app.id,
     name: app.name,
     url: app.url,
@@ -38,7 +38,7 @@ import { importRemote } from "./import-remote";
   ]
     .map((tag) => {
       return `<${tag}>
-    ${config.appConfig
+    ${applications
       .filter(
         (app) => app.placement === tag || (tag === "content" && !app.placement)
       )

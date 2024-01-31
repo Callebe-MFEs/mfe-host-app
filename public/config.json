@@ -1,64 +1,62 @@
-{
-  "appConfig": [
-    {
-      "id": 1,
-      "name": "home",
-      "url": "/",
-      "remoteEntry": {
-        "url": "/remoteEntry.js",
-        "scope": "MyHostApp",
-        "module": "./myHostApp",
-        "type": "webpack"
-      },
-      "route": "/",
-      "loadRemoteStyle": false,
-      "activeWhen": "^/$",
+[
+  {
+    "id": 1,
+    "name": "home",
+    "url": "/",
+    "remoteEntry": {
+      "url": "/remoteEntry.js",
+      "scope": "MyHostApp",
+      "module": "./myHostApp",
+      "type": "webpack"
+    },
+    "route": "/",
+    "loadRemoteStyle": false,
+    "activeWhen": "^/$",
+    "placement": "content"
+  },
+  {
+    "id": 2,
+    "name": "mfeAppR",
+    "url": "/mfe-app-r",
+    "loadRemoteStyle": false,
+    "remoteEntry": {
+      "url": "/mfe-app-r/remoteEntry.js",
+      "scope": "mfeAppR",
+      "module": "./MFEAppR",
+      "type": "webpack"
+    },
+    "route": "/",
+    "activeWhen": "^/",
+    "placement": "header"
+  },
+  {
+    "id": 3,
+    "name": "mfeAppA",
+    "url": "/mfe-app-a",
+    "loadRemoteStyle": false,
+    "remoteEntry": {
+      "url": "/mfe-app-a/remoteEntry.js",
+      "scope": "mfeAppA",
+      "module": "./MFEAppA",
       "type": "module"
     },
-    {
-      "id": 2,
-      "name": "mfeAppR",
-      "url": "/mfe-app-r",
-      "loadRemoteStyle": false,
-      "remoteEntry": {
-        "url": "/mfe-app-r/remoteEntry.js",
-        "scope": "mfeAppR",
-        "module": "./MFEAppR",
-        "type": "webpack"
-      },
-      "route": "/",
-      "activeWhen": "^/",
-      "placement": "header"
+    "route": "/mfeAppA",
+    "activeWhen": "^/mfeAppA(/.*)?$",
+    "placement": "content"
+  },
+  {
+    "id": 4,
+    "name": "mfeAppV",
+    "url": "/mfe-app-v",
+    "loadRemoteStyle": false,
+    "remoteEntry": {
+      "url": "/mfe-app-v/assets/remoteEntry.js",
+      "scope": "mfeAppV",
+      "module": "./MFEAppV",
+      "type": "module"
     },
-    {
-      "id": 3,
-      "name": "mfeAppA",
-      "url": "/mfe-app-a",
-      "loadRemoteStyle": false,
-      "remoteEntry": {
-        "url": "/mfe-app-a/remoteEntry.js",
-        "scope": "mfeAppA",
-        "module": "./MFEAppA",
-        "type": "module"
-      },
-      "route": "/mfeAppA",
-      "activeWhen": "^/mfeAppA(/.*)?$",
-      "placement": "content"
-    },
-    {
-      "id": 4,
-      "name": "mfeAppV",
-      "url": "/mfe-app-v",
-      "loadRemoteStyle": false,
-      "remoteEntry": {
-        "url": "/mfe-app-v/assets/remoteEntry.js",
-        "scope": "mfeAppV",
-        "module": "./MFEAppV",
-        "type": "module"
-      },
-      "route": "/mfeAppV",
-      "activeWhen": "^/mfeAppV(/.*)?$",
-      "placement": "content"
-    }
-  ]
-}
+    "route": "/mfeAppV",
+    "activeWhen": "^/mfeAppV(/.*)?$",
+    "placement": "content"
+  }
+]

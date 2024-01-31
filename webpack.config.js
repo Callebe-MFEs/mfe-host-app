@@ -4,6 +4,7 @@ const { ModuleFederationPlugin } = require("webpack").container;
 // required if using external remotes
 // const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
 const path = require("path");
+const fs = require("fs");
 
 const mode = process.env.NODE_ENV || "development";
 
@@ -54,6 +55,10 @@ module.exports = {
         target: "http://localhost:3003",
         pathRewrite: { "^/mfe-app-v": "" },
       },
+      "/applications": {
+        target: "http://localhost:3000",
+        pathRewrite: { "^/applications": "/config.json" },
+      },
     },
   },
   experiments: {
@@ -80,9 +85,6 @@ module.exports = {
     // new ExternalTemplateRemotesPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-    }),
-    new CopyPlugin({
-      patterns: ["./public/config.json"],
     }),
   ],
 };
